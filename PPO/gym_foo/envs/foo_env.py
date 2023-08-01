@@ -14,7 +14,7 @@ import random
 
 class FooEnv(gym.Env):
     metadata = {'render.modes': ['human']}
-    def __init__(self, LoadData = True, Train = True, multiUT = True, Trajectory_mode = 'Kmeans', MaxStep = 41):
+    def __init__(self, LoadData = True, Train = False, multiUT = True, Trajectory_mode = 'Kmeans', MaxStep = 41):
         globe._init()
         #the initial location of UAV-RIS
         globe.set_value('L_U', [0, 0, 20]) #[x, y, z]
@@ -71,57 +71,57 @@ class FooEnv(gym.Env):
         if LoadData == True:
             if Train == True:
                 if multiUT == True:
-                    UT_0 = np.loadtxt("./CreateData/Train_Trajectory_UT_0.csv", delimiter=",")
-                    UT_1 = np.loadtxt("./CreateData/Train_Trajectory_UT_1.csv", delimiter=",")
-                    UT_2 = np.loadtxt("./CreateData/Train_Trajectory_UT_2.csv", delimiter=",")
+                    UT_0 = np.loadtxt("../CreateData/Train_Trajectory_UT_0.csv", delimiter=",")
+                    UT_1 = np.loadtxt("../CreateData/Train_Trajectory_UT_1.csv", delimiter=",")
+                    UT_2 = np.loadtxt("../CreateData/Train_Trajectory_UT_2.csv", delimiter=",")
 
                     globe.set_value('UT_0', UT_0)
                     globe.set_value('UT_1', UT_1)
                     globe.set_value('UT_2', UT_2)
 
                     if Trajectory_mode == 'Fermat':
-                        UAV_Trajectory = np.loadtxt("./CreateData/Fermat_Train_Trajectory_3.csv", delimiter=",")
+                        UAV_Trajectory = np.loadtxt("../CreateData/Fermat_Train_Trajectory_3.csv", delimiter=",")
                     else:
-                        UAV_Trajectory = np.loadtxt("./CreateData/Kmeans_Train_Trajectory_3.csv", delimiter=",")
+                        UAV_Trajectory = np.loadtxt("../CreateData/Kmeans_Train_Trajectory_3.csv", delimiter=",")
 
                     globe.set_value('UAV_Trajectory', UAV_Trajectory)
 
                 else:
-                    UT_0 = np.loadtxt("./CreateData/Train_Trajectory_UT_0.csv", delimiter=",")
+                    UT_0 = np.loadtxt("../CreateData/Train_Trajectory_UT_0.csv", delimiter=",")
                     globe.set_value('UT_0', UT_0)
 
                     if Trajectory_mode == 'Fermat':
-                        UAV_Trajectory = np.loadtxt("./CreateData/Fermat_Train_Trajectory_1.csv", delimiter=",")
+                        UAV_Trajectory = np.loadtxt("../CreateData/Fermat_Train_Trajectory_1.csv", delimiter=",")
                     else:
-                        UAV_Trajectory = np.loadtxt("./CreateData/Kmeans_Train_Trajectory_1.csv", delimiter=",")
+                        UAV_Trajectory = np.loadtxt("../CreateData/Kmeans_Train_Trajectory_1.csv", delimiter=",")
 
                     globe.set_value('UAV_Trajectory', UAV_Trajectory)
 
             else:
                 if multiUT == True:
-                    UT_0 = np.loadtxt("./CreateData/Test_Trajectory_UT_0.csv", delimiter=",")
-                    UT_1 = np.loadtxt("./CreateData/Test_Trajectory_UT_1.csv", delimiter=",")
-                    UT_2 = np.loadtxt("./CreateData/Test_Trajectory_UT_2.csv", delimiter=",")
+                    UT_0 = np.loadtxt("../CreateData/Test_Trajectory_UT_0.csv", delimiter=",")
+                    UT_1 = np.loadtxt("../CreateData/Test_Trajectory_UT_1.csv", delimiter=",")
+                    UT_2 = np.loadtxt("../CreateData/Test_Trajectory_UT_2.csv", delimiter=",")
 
                     globe.set_value('UT_0', UT_0)
                     globe.set_value('UT_1', UT_1)
                     globe.set_value('UT_2', UT_2)
 
                     if Trajectory_mode == 'Fermat':
-                        UAV_Trajectory = np.loadtxt("./CreateData/Fermat_Test_Trajectory_3.csv", delimiter=",")
+                        UAV_Trajectory = np.loadtxt("../CreateData/Fermat_Test_Trajectory_3.csv", delimiter=",")
                     else:
-                        UAV_Trajectory = np.loadtxt("./CreateData/Kmeans_Test_Trajectory_3.csv", delimiter=",")
+                        UAV_Trajectory = np.loadtxt("../CreateData/Kmeans_Test_Trajectory_3.csv", delimiter=",")
 
                     globe.set_value('UAV_Trajectory', UAV_Trajectory)
 
                 else:
-                    UT_0 = np.loadtxt("./CreateData/Test_Trajectory_UT_0.csv", delimiter=",")
+                    UT_0 = np.loadtxt("../CreateData/Test_Trajectory_UT_0.csv", delimiter=",")
                     globe.set_value('UT_0', UT_0)
 
                     if Trajectory_mode == 'Fermat':
-                        UAV_Trajectory = np.loadtxt("./CreateData/Fermat_Test_Trajectory_1.csv", delimiter=",")
+                        UAV_Trajectory = np.loadtxt("../CreateData/Fermat_Test_Trajectory_1.csv", delimiter=",")
                     else:
-                        UAV_Trajectory = np.loadtxt("./CreateData/Kmeans_Test_Trajectory_1.csv", delimiter=",")
+                        UAV_Trajectory = np.loadtxt("../CreateData/Kmeans_Test_Trajectory_1.csv", delimiter=",")
 
                     globe.set_value('UAV_Trajectory', UAV_Trajectory)        
         
